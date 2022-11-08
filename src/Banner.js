@@ -1,5 +1,6 @@
 import React from "react";
 
+// format entry name text from given record
 function PatientName({ name = [] }) {
   let entry =
     name.find((nameRecord) => nameRecord.use === "official") || name[0];

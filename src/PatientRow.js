@@ -1,9 +1,9 @@
 import React from "react";
 
+// get condition information in the correct format
 const getConditionName = ({ code }) => code && code.text;
-
 const getConditionPath = ({ code }) =>
-  code && `https://pubmed.ncbi.nlm.nih.gov/?term=${code.text}`;
+  code && `https://pubmed.ncbi.nlm.nih.gov/?term=${code.text}`; // static link from the customer requirements
 
 function PatientRow({ med }) {
   const name = getConditionName(med);

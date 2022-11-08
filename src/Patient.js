@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import PatientRow from "./PatientRow";
 
 function Patient({ patient, meds }) {
+  // added sort functionality
   const [sortDirection, setSortDirection] = useState(true);
   const sortedMeds = sortDirection
     ? meds.sort((a, b) => (a.code.text > b.code.text ? 1 : -1))
@@ -24,9 +25,9 @@ function Patient({ patient, meds }) {
           </tr>
         </thead>
         <tbody>
-          {sortedMeds.map((med) => (
+          {meds.length ? sortedMeds.map((med) => (
             <PatientRow key={med.id} med={med} />
-          ))}
+          )) : <div>Empty Records Found!</div>}
         </tbody>
       </table>
     </div>

@@ -5,15 +5,13 @@ import Patient from "./Patient";
 
 const rootElement = document.getElementById("container");
 
+// temporal client_id with fhir iss config using launch.smarthealthit.org
 SMART.init({
-  // configs are from the example codebase
   iss:
     "https://launch.smarthealthit.org/v/r3/sim/eyJoIjoiMSIsImIiOiJzbWFydC0xNjQyMDY4IiwiZSI6InNtYXJ0LVByYWN0aXRpb25lci03MTYxNDUwMiJ9/fhir",
   redirectUri: "test.html",
   clientId: "test",
   scope: "launch/patient offline_access openid fhirUser",
-  // completeInTarget=true is needed to make this work in the codesandbox frame
-  completeInTarget: true
 })
   .then((client) => {
     // Fetch Condition and Patient in parallel to load the app faster
@@ -33,10 +31,10 @@ SMART.init({
     (error) => {
       console.error(error);
       render(
-        <>
+        <div>
           <br />
           <pre>{error.stack}</pre>
-        </>,
+        </div>,
         rootElement
       );
     }
